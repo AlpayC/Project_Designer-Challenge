@@ -1,0 +1,338 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    selection:var(--btn);
+    /* border: 2px red solid; */
+}
+*::selection{
+    background-color: var(--btn);
+    color: var(--white);
+}
+
+ /* FONTS */
+
+@font-face {
+    font-family: robotor;
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: robotob;
+    src: url(../fonts/Roboto-Bold.ttf);
+}
+@font-face {
+    font-family: robotoblack;
+    src: url(../fonts/Roboto-Black.ttf);
+}
+ /* GENERAL SETTINGS */
+
+:root{
+/* COLORS */
+    --btn: #ff3571;
+    --gradientblue:#3C30FF;
+    --txt: #0b0c17;
+    --nmbr: #dddddd;
+    --white: #ffffff;
+    --black: #000;
+}
+
+/* GENERAL SETTINGS */
+
+img{
+    max-width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: robotor, Arial, Helvetica, sans-serif;
+    color: var(--txt);
+    scroll-behavior: smooth;
+}
+
+
+p{
+    font-size: 1rem;
+    font-family: robotob,Arial, Helvetica, sans-serif;
+}
+
+h1{
+    font-size: 8rem;
+    font-family: robotob;
+}
+
+h2{
+    font-size: 6rem;
+    font-family: robotob;
+}
+
+h3{
+    font-size: 2rem;
+    font-family: robotoblack;
+}
+h6{
+    font-size: 2rem;
+    font-family: robotoblack, Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+
+header{
+    height: 100vh;
+    background: url(../img/ilustracion1.png) no-repeat top right;
+    background-size:50%;
+}
+nav{
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding:5rem;
+}
+.navcontainer{
+    display:flex ;
+    flex-direction: row;
+}
+.navcontainer a{
+    padding:3rem 0 3rem 3rem;
+    z-index: 2;
+    position: relative;
+}
+.navcontainer a img{
+    height: 42px;
+    position: fixed;
+}
+
+.hero{
+    padding:0 15rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap:30rem;
+    height:80%;
+}
+.flyingman{
+    background: url(../img/ilustracion_people.png) no-repeat top right;
+    background-size: 135%;
+    height: 1400px;
+    width: 1500px;
+}
+.herotxt{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+.herotxt p{
+    font-size: 2.6rem;
+    font-family: robotor;
+    margin-bottom: 18rem;
+}
+.herotxt a{
+    font-size: 2rem;
+    color: var(--btn);
+    font-family: robotoblack;
+}
+
+.herotxt img{
+    height:3rem;
+}
+.pseudocontainer{
+    height:auto;
+    width: auto;
+}
+/* ANIMATION FLYING MAN */
+
+
+
+/* PROJECT GALLERY BEGIN MAIN */
+.projectgallery{
+    background:url(../img/images.jpg) no-repeat center;
+    background-size: contain;
+    height:75vh;
+    margin-bottom: 200px;
+}
+
+/* ANIMATION PROJECTGALLERY */
+
+
+/* IDEA */
+.idea{
+    display: flex;
+    flex-direction: row;
+    padding:0 15rem;
+    height: 45vh;
+    gap:35rem;
+    margin-bottom: 300px;
+}
+
+.idea p{
+    font-size: 2rem;
+    font-family: robotor;
+    line-height: 4.5rem;
+    height: 30vh;
+    max-width: 40vw;
+}
+.idea h2 img{
+    height:60px;
+}
+.idea h2{
+    width: 20vw;
+}
+
+/* AFTER WEEKS... */
+.weeks{
+    padding:0 15rem;
+    max-width: 55%;
+    height: 20vh;
+    margin-bottom: 300px;
+}
+
+/* FACTS */
+
+.facts{
+    padding:0 15rem;
+    height: 50vh;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 15rem;
+    column-gap: 45rem;
+    margin-bottom: 300px;
+}
+.facts p{
+    font-size: 2rem;
+    font-family: robotor;
+    line-height: 4.5rem;
+}
+.facts article{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+.facts article img{
+    height:40px;
+    margin-top: -1rem;
+}
+
+/* R U READY? combined with SUBSCRIBE SECTION*/
+.ready, .subscribe{
+    padding:0 15rem;
+    height: 50vh;
+    text-align: center;
+}
+.ready p, .subscribe p{
+    font-size: 2.6rem;
+    font-family: robotor;
+    padding:0 35rem;
+    line-height: 4.5rem;
+    margin-top: 75px;
+}
+
+/* STEPS */
+
+.steps{
+    padding:0 15rem;
+    height: 50vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15rem;
+    margin-bottom: 300px;
+}
+.steps div:first-of-type{
+    background:url(../img/step01.png) no-repeat center;
+    background-size: contain;
+    height: 50vh;
+    width: 50vw;
+}
+.steps div:last-of-type{
+    width: 50vw;
+}
+.steps div:last-of-type p:first-of-type{
+    font-size: 6rem;
+    color: var(--nmbr);
+    font-family: robotoblack;
+    margin-bottom: 100px;
+}
+.steps div:last-of-type img{
+    margin-bottom: 25px;
+}
+.steps div:last-of-type p:last-of-type{
+    font-size: 2rem;
+    font-family: robotor;
+    line-height: 4.5rem;
+}
+.steps h3{
+    margin-bottom: 35px;
+}
+#step2 div:first-of-type{
+    background:url(../img/step02.png) no-repeat center;
+    background-size: contain;
+}
+#step2, #step4{
+    flex-direction: row-reverse;
+}
+#step3 div:first-of-type{
+    background:url(../img/step03.png) no-repeat center;
+    background-size: contain;
+}
+#step4 div:first-of-type{
+    background:url(../img/step04.png) no-repeat center;
+    background-size: contain;
+}
+
+/* SUBSCRIBE NEWSLETTER */
+.subscribe p{
+    margin-bottom: 7.5rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.subscribe form input:first-of-type{
+    padding:2.5rem 25rem;
+    color: var(--black);
+    font-size: 2.6rem;
+    font-family: robotor;
+    border:0px;
+    box-shadow: 0px 0px 50px -15px var(--nmbr);
+    margin-bottom: 5rem;
+    border-radius: 5px;
+}
+.subscribe form input:last-of-type{
+    padding:2rem 15rem;
+    color: var(--white);
+    background-color: var(--btn);
+    font-size: 2.2rem;
+    font-family: robotor;
+    border-radius: 5px;
+    border:0px;
+
+}
+.subscribe form input:last-of-type:hover{
+    background: rgb(255,53,113);
+    background: linear-gradient(90deg, rgba(255,53,113,1) 0%, rgba(60,48,255,1) 70%);
+    transition: 1.5s ease;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer{
+    padding:0 15rem;
+    margin-bottom: 30px;
+    margin-top: 100px;
+}
+footer img{
+    height:20px;
+    margin-left: 20px;
+}
+footer p{
+    font-size: 1.5rem;
+    font-family: robotor;
+}
