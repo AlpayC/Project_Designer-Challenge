@@ -2,9 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    selection:var(--btn);
-    /* border: 2px red solid; */
+    /* border: 2px red solid; um Layoutprobleme zu erknenn*/
 }
+/* Auswahlfarbe geändert zu btn.farbe */
 *::selection{
     background-color: var(--btn);
     color: var(--white);
@@ -24,8 +24,6 @@
     font-family: robotoblack;
     src: url(../fonts/Roboto-Black.ttf);
 }
- /* GENERAL SETTINGS */
-
 :root{
 /* COLORS */
     --btn: #ff3571;
@@ -48,34 +46,41 @@ a{
 
 html{
     font-size: 62.5%;
-    font-family: robotor, Arial, Helvetica, sans-serif;
     color: var(--txt);
     scroll-behavior: smooth;
 }
-
-
-p{
-    font-size: 1rem;
+/* Elemente, die robotor als Schriftart nutzen */
+html,.herotxt p,.idea p,.facts p, .ready p, .subscribe p, .steps div:last-of-type p:last-of-type, .subscribe form input:first-of-type, .subscribe form input:last-of-type, footer p{
+    font-family: robotor, Arial, Helvetica, sans-serif;
+}
+/* Elemente, die robotob als Schriftart nutzen */
+p, h1, h2{
     font-family: robotob,Arial, Helvetica, sans-serif;
 }
+/* Elemente, die robotoblack als Schriftart nutzen und Schriftgröße 2rem haben */
+h3, h6, .herotxt a, .steps div:last-of-type p:first-of-type{
+    font-family: robotoblack; 
+    font-size: 2rem;
+}
+/* FONT SIZES */
 
 h1{
     font-size: 8rem;
-    font-family: robotob;
 }
-
-h2{
+h2, .steps div:last-of-type p:first-of-type{
     font-size: 6rem;
-    font-family: robotob;
 }
-
-h3{
-    font-size: 2rem;
-    font-family: robotoblack;
+.herotxt p, .ready p, .subscribe p, .subscribe form input:first-of-type{
+    font-size: 2.6rem;
 }
-h6{
+.idea p, .facts p, .steps div:last-of-type p:last-of-type{
     font-size: 2rem;
-    font-family: robotoblack, Arial, Helvetica, sans-serif;
+}
+.subscribe form input:last-of-type{
+    font-size: 2.2rem;
+}
+footer p{
+    font-size: 1.5rem;
 }
 
 /* HEADER */
@@ -84,6 +89,7 @@ header{
     height: 100vh;
     background: url(../img/ilustracion1.png) no-repeat top right;
     background-size:50%;
+    overflow: hidden;
 }
 nav{
     height: 100px;
@@ -110,6 +116,7 @@ nav{
     padding:0 15rem;
     display:flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     gap:30rem;
@@ -118,18 +125,18 @@ nav{
 .flyingman{
     background: url(../img/ilustracion_people.png) no-repeat top right;
     background-size: 135%;
-    height: 1400px;
-    width: 1500px;
+    height: calc(100vh - 100%);
+    min-height: calc(100vh + 300px);
+    width:calc(100vw - 100%);
+    min-width: calc(20vw + 300px);;
     animation-name: move;                /** Name der Animation **/
     animation-duration: 3s;               /** Dauer der Animation **/
     animation-iteration-count: infinite;  /** Anzahl der Wiederholungen **/
     animation-direction: alternate; /** Richtung der Animation**/
-    
 }
 .flyingman:hover{
     animation-play-state: paused;
 }
-
 .herotxt{
     display: flex;
     justify-content: center;
@@ -137,22 +144,13 @@ nav{
     gap: 2rem;
 }
 .herotxt p{
-    font-size: 2.6rem;
-    font-family: robotor;
     margin-bottom: 18rem;
 }
 .herotxt a{
-    font-size: 2rem;
     color: var(--btn);
-    font-family: robotoblack;
 }
-
 .herotxt img{
     height:3rem;
-}
-.pseudocontainer{
-    height:auto;
-    width: auto;
 }
 /* ANIMATION FLYING MAN */
 
@@ -172,7 +170,6 @@ main{
     width:6400px;  /*Die Breite ist die Bildbreite*2. Ist der Wert weit unter der Pixelzahl, funktioniert die Wiederholung nicht */
     animation: carousel 45s linear infinite;
 }
-
 /* ANIMATION PROJECTGALLERY */
 @keyframes carousel{
     0% {
@@ -182,11 +179,11 @@ main{
         transform: translatex(-3200px); /* Die Breite des Background Images */
       }
     }
-
 /* IDEA */
 .idea{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     padding:0 15rem;
     height: 45vh;
     gap:35rem;
@@ -194,8 +191,6 @@ main{
 }
 
 .idea p{
-    font-size: 2rem;
-    font-family: robotor;
     line-height: 4.5rem;
     height: 30vh;
     max-width: 40vw;
@@ -227,8 +222,6 @@ main{
     margin-bottom: 300px;
 }
 .facts p{
-    font-size: 2rem;
-    font-family: robotor;
     line-height: 4.5rem;
 }
 .facts article{
@@ -241,15 +234,13 @@ main{
     margin-top: -1rem;
 }
 
-/* R U READY? combined with SUBSCRIBE SECTION*/
+/* R U READY? kombiniert mit SUBSCRIBE SECTION*/
 .ready, .subscribe{
     padding:0 15rem;
     height: 50vh;
     text-align: center;
 }
 .ready p, .subscribe p{
-    font-size: 2.6rem;
-    font-family: robotor;
     padding:0 35rem;
     line-height: 4.5rem;
     margin-top: 75px;
@@ -276,17 +267,13 @@ main{
     width: 50vw;
 }
 .steps div:last-of-type p:first-of-type{
-    font-size: 6rem;
     color: var(--nmbr);
-    font-family: robotoblack;
     margin-bottom: 100px;
 }
 .steps div:last-of-type img{
     margin-bottom: 25px;
 }
 .steps div:last-of-type p:last-of-type{
-    font-size: 2rem;
-    font-family: robotor;
     line-height: 4.5rem;
 }
 .steps h3{
@@ -321,8 +308,6 @@ form{
 .subscribe form input:first-of-type{
     padding:2.5rem 25rem;
     color: var(--black);
-    font-size: 2.6rem;
-    font-family: robotor;
     border:0px;
     box-shadow: 0px 0px 50px -15px var(--nmbr);
     margin-bottom: 5rem;
@@ -332,11 +317,8 @@ form{
     padding:2rem 15rem;
     color: var(--white);
     background-color: var(--btn);
-    font-size: 2.2rem;
-    font-family: robotor;
     border-radius: 5px;
     border:0px;
-
 }
 .subscribe form input:last-of-type:hover{
     background: rgb(255,53,113);
@@ -354,7 +336,243 @@ footer img{
     height:20px;
     margin-left: 20px;
 }
-footer p{
-    font-size: 1.5rem;
-    font-family: robotor;
+
+/* MEDIA QUERIES */
+@media (max-width: 575.98px) {
+    h1{
+        font-size: 4rem;
+    }
+    h2{
+        font-size: 3rem;
+    }
+    .hero{
+        text-align: center;
+        padding:8rem 5rem;
+        display:block;
+    }
+    .herotxt{
+        gap:2rem;
+    }
+    .herotxt p{
+        margin-bottom: 35rem;
+        font-size: 2rem;
+    }
+    .flyingman{
+        background: url(../img/ilustracion_people.png) no-repeat top center ;
+        background-size: 150%;
+        position:absolute;
+        top:240px;
+        left: -10px;
+    }
+    header{
+        height: 100vh;
+        background: url(../img/ilustracion1.png) no-repeat top right;
+        background-size:40%;
+        margin-bottom: 5rem;
+    }
+    .projectgallery{
+        margin-bottom: 5rem;
+    }
+    .herotxt{
+        position:relative;
+        z-index: 2;
+    }
+    .idea{
+        padding:8rem 5rem;
+        text-align: center;
+        flex-direction: row;
+        gap:2rem;
+        height:100vh;
+        margin-bottom: 5rem;
+    }
+    .idea h2, .weeks h2{
+        width:unset;
+    }
+    .idea p{
+        max-width: unset;
+        height:unset;
+    }
+    .weeks{
+        padding:8rem 5rem;
+        text-align: center;
+        max-width: unset;
+        height:unset;
+        margin-bottom: 5rem;
+    }
+    .facts{
+        padding:8rem 5rem;
+        height:auto;
+        grid-template-columns: repeat(1,1fr);
+        margin-bottom: 5rem;
+    }
+    .ready{
+        padding:8rem 5rem;
+        margin-bottom: 5rem;
+    }
+    .ready p,.subscribe p{
+        padding:unset;
+        font-size: 2rem;
+    }
+    .steps{
+        text-align: center;
+        flex-direction: column;
+        padding:8rem 5rem;
+        gap:2rem;
+        margin-bottom: unset;
+        height:unset;
+    }
+    .steps div:first-of-type, .steps div:last-of-type{
+        width:unset;
+    }
+    #step2, #step4 {
+        flex-direction: column;
+    }
+    .steps div:last-of-type p:first-of-type {
+        margin-bottom: 5rem;
+        font-size: 12rem;
+    }
+    .steps div:last-of-type img {
+        height:50px;
+        width:50px;
+    }
+    .subscribe, footer{
+        padding:8rem 5rem; 
+        height:unset;
+    }
+    .subscribe form input:first-of-type {
+        padding:3rem 2rem;  
+    }
+    .subscribe form input:first-of-type {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .subscribe form input:last-of-type{
+        padding:2rem 9rem;  
+    }
+
 }
+
+@media (max-width: 767.98px) {
+    h1{
+        font-size: 4rem;
+    }
+    h2{
+        font-size: 3rem;
+    }
+    .hero{
+        text-align: center;
+        padding:8rem 5rem;
+        display:block;
+    }
+    .herotxt{
+        gap:2rem;
+    }
+    .herotxt p{
+        margin-bottom: 35rem;
+        font-size: 2rem;
+    }
+    .flyingman{
+        background: url(../img/ilustracion_people.png) no-repeat top center ;
+        background-size: 150%;
+        position:absolute;
+        top:240px;
+        left: -10px;
+    }
+    header{
+        height: 100vh;
+        background: url(../img/ilustracion1.png) no-repeat top right;
+        background-size:40%;
+        margin-bottom: 5rem;
+    }
+    .projectgallery{
+        margin-bottom: 5rem;
+    }
+    .herotxt{
+        position:relative;
+        z-index: 2;
+    }
+    .idea{
+        padding:8rem 5rem;
+        text-align: center;
+        flex-direction: row;
+        gap:2rem;
+        height:100vh;
+        margin-bottom: 5rem;
+    }
+    .idea h2, .weeks h2{
+        width:unset;
+    }
+    .idea p{
+        max-width: unset;
+        height:unset;
+    }
+    .weeks{
+        padding:8rem 5rem;
+        text-align: center;
+        max-width: unset;
+        height:unset;
+        margin-bottom: 5rem;
+    }
+    .facts{
+        padding:8rem 5rem;
+        height:auto;
+        grid-template-columns: repeat(1,1fr);
+        margin-bottom: 5rem;
+    }
+    .ready{
+        padding:8rem 5rem;
+        margin-bottom: 5rem;
+    }
+    .ready p,.subscribe p{
+        padding:unset;
+        font-size: 2rem;
+    }
+    .steps{
+        text-align: center;
+        flex-direction: column;
+        padding:8rem 5rem;
+        gap:2rem;
+        margin-bottom: unset;
+        height:unset;
+    }
+    .steps div:first-of-type, .steps div:last-of-type{
+        width:unset;
+    }
+    #step2, #step4 {
+        flex-direction: column;
+    }
+    .steps div:last-of-type p:first-of-type {
+        margin-bottom: 5rem;
+        font-size: 12rem;
+    }
+    .steps div:last-of-type img {
+        height:50px;
+        width:50px;
+    }
+    .subscribe, footer{
+        padding:8rem 5rem; 
+        height:unset;
+    }
+    .subscribe form input:first-of-type {
+        padding:3rem 2rem;  
+    }
+    .subscribe form input:first-of-type {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .subscribe form input:last-of-type{
+        padding:2rem 9rem;  
+    }
+    }
+
+@media (max-width: 991.98px) {
+
+    }
+
+@media (max-width: 1199.98px) {
+
+    }
+
+@media (max-width: 1399.98px) { 
+
+    }
