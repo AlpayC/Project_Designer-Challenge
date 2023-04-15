@@ -120,7 +120,16 @@ nav{
     background-size: 135%;
     height: 1400px;
     width: 1500px;
+    animation-name: move;                /** Name der Animation **/
+    animation-duration: 3s;               /** Dauer der Animation **/
+    animation-iteration-count: infinite;  /** Anzahl der Wiederholungen **/
+    animation-direction: alternate; /** Richtung der Animation**/
+    
 }
+.flyingman:hover{
+    animation-play-state: paused;
+}
+
 .herotxt{
     display: flex;
     justify-content: center;
@@ -147,18 +156,32 @@ nav{
 }
 /* ANIMATION FLYING MAN */
 
-
-
+@keyframes move{
+    from {  transform: translateY(0px)    }
+    to   {  transform: translateY(100px) }
+}
+main{
+    overflow: hidden;
+}
 /* PROJECT GALLERY BEGIN MAIN */
 .projectgallery{
-    background:url(../img/images.jpg) no-repeat center;
+    background:url(../img/images.jpg) repeat-x;
     background-size: contain;
     height:75vh;
     margin-bottom: 200px;
+    width:6400px;  /*Die Breite ist die Bildbreite*2. Ist der Wert weit unter der Pixelzahl, funktioniert die Wiederholung nicht */
+    animation: carousel 45s linear infinite;
 }
 
 /* ANIMATION PROJECTGALLERY */
-
+@keyframes carousel{
+    0% {
+        transform: translatex(0);
+      }
+      100% {
+        transform: translatex(-3200px); /* Die Breite des Background Images */
+      }
+    }
 
 /* IDEA */
 .idea{
@@ -321,7 +344,6 @@ form{
     transition: 1.5s ease;
     cursor: pointer;
 }
-
 /* FOOTER */
 footer{
     padding:0 15rem;
